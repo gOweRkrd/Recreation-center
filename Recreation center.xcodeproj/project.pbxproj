@@ -51,9 +51,10 @@
 		5054D5312A04AE0000D41BFC /* Recreation center */ = {
 			isa = PBXGroup;
 			children = (
-				5054D5322A04AE0000D41BFC /* Recreation_centerApp.swift */,
-				5054D5342A04AE0000D41BFC /* ContentView.swift */,
-				5054D5362A04AE0100D41BFC /* Assets.xcassets */,
+				5054D5552A04B63600D41BFC /* App */,
+				5054D5562A04B64400D41BFC /* Modules */,
+				5054D55A2A04B68D00D41BFC /* Extensions */,
+				5054D5592A04B68300D41BFC /* Resources */,
 				5054D5382A04AE0100D41BFC /* Preview Content */,
 			);
 			path = "Recreation center";
@@ -65,6 +66,53 @@
 				5054D5392A04AE0100D41BFC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5054D5552A04B63600D41BFC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5054D5322A04AE0000D41BFC /* Recreation_centerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5054D5562A04B64400D41BFC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5054D5572A04B65700D41BFC /* MainScreen */,
+				5054D5582A04B66300D41BFC /* DetailScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5054D5572A04B65700D41BFC /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5054D5342A04AE0000D41BFC /* ContentView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		5054D5582A04B66300D41BFC /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailScreen;
+			sourceTree = "<group>";
+		};
+		5054D5592A04B68300D41BFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5054D5362A04AE0100D41BFC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5054D55A2A04B68D00D41BFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
