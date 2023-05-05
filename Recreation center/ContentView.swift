@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Recreation center
-//
-//  Created by Александр Косяков on 05.05.2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {

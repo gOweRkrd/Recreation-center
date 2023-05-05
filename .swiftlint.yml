@@ -1,0 +1,225 @@
+#
+# rule identifiers turned on by default to exclude from running
+#
+excluded:
+- SwiftGen
+
+#
+# unwanted rules...
+#
+disabled_rules:
+    - trailing_whitespace
+    - implicit_return # Implicit return should not be a strict rule.
+    - class_delegate_protocol
+    - empty_enum_arguments
+    - implicit_getter
+    - type_name
+    - todo
+    - blanket_disable_command
+
+opt_in_rules:
+#Updated rules
+- closing_brace
+- closure_parameter_position
+- comma
+- comment_spacing
+- computed_accessors_order
+- control_statement
+- deployment_target
+- discouraged_direct_init
+- duplicate_enum_cases
+- duplicate_imports
+- duplicated_key_in_dictionary_literal
+- empty_enum_arguments
+- empty_parameters
+- empty_parentheses_with_trailing_closure
+- file_length
+- for_where
+- function_body_length
+- function_parameter_count
+- implicit_getter
+- large_tuple
+- leading_whitespace
+- legacy_cggeometry_functions
+- legacy_constant
+- legacy_constructor
+- legacy_hashing
+- legacy_nsgeometry_functions
+- legacy_random
+- line_length
+- mark
+- nesting
+- no_fallthrough_only
+- no_space_in_method_call
+- notification_center_detachment
+- ns_number_init_as_function_reference
+- nsobject_prefer_isequal
+- opening_brace
+- operator_whitespace
+- orphaned_doc_comment
+- private_unit_test
+- protocol_property_accessors_order
+- reduce_boolean
+- redundant_discardable_let
+- redundant_objc_attribute
+- redundant_optional_initialization
+- redundant_set_access_control
+- redundant_string_enum_value
+- redundant_void_return
+- return_arrow_whitespace
+- self_in_property_initialization
+- shorthand_operator
+- statement_position
+- switch_case_alignment
+- syntactic_sugar
+- trailing_newline
+- trailing_semicolon
+- unavailable_condition
+- unneeded_break_in_switch
+- unused_closure_parameter
+- unused_control_flow_label
+- unused_enumerated
+- unused_optional_binding
+- unused_setter_value
+- vertical_whitespace
+- vertical_parameter_alignment
+- void_return
+- custom_rules
+# Old rules
+- anonymous_argument_in_multiline_closure
+- collection_alignment
+- closure_body_length
+- contains_over_filter_count
+- contains_over_filter_is_empty
+- contains_over_first_not_nil
+- contains_over_range_nil_comparison
+- convenience_type
+- discarded_notification_center_observer
+- discouraged_optional_boolean
+- empty_collection_literal
+- empty_count
+- empty_string
+- enum_case_associated_values_count
+- extension_access_modifier
+- fallthrough
+- fatal_error_message
+- file_name_no_space
+- first_where
+- flatmap_over_map_reduce
+- force_unwrapping
+- function_default_parameter_at_end
+- identical_operands
+- implicitly_unwrapped_optional
+- last_where
+- legacy_multiple
+- legacy_objc_type
+- lower_acl_than_parent
+- multiline_arguments
+- multiline_arguments_brackets
+- multiline_function_chains
+- multiline_literal_brackets
+- multiline_parameters
+- multiline_parameters_brackets
+- nslocalizedstring_key
+- overridden_super_call
+- override_in_extension
+- pattern_matching_keywords
+- private_subject
+- prohibited_super_call
+- reduce_into
+- sorted_first_last
+- static_operator
+- switch_case_on_newline
+- trailing_closure
+- unavailable_function
+- unowned_variable_capture
+- yoda_condition
+- anyobject_protocol
+- array_init
+- closure_end_indentation
+- closure_spacing
+- explicit_init
+- implicit_return
+- joined_default_parameter
+- literal_expression_end_indentation
+- modifier_order
+- operator_usage_whitespace
+- optional_enum_case_matching
+- prefer_self_in_static_references
+- prefer_self_type_over_type_of_self
+- prefer_zero_over_explicit_init
+- redundant_nil_coalescing
+- sorted_imports
+- toggle_bool
+- unneeded_parentheses_in_closure_argument
+- untyped_error_in_catch
+- weak_delegate
+
+analyzer_rules:
+- unused_declaration
+- unused_import
+- capture_variable
+
+#
+# configurable rules can be customized from this configuration file
+#
+anonymous_argument_in_multiline_closure:
+    severity: error
+
+file_length:
+    warning: 500
+
+line_length:
+    warning: 120
+    ignores_function_declarations: true
+    ignores_comments: true
+    ignores_urls: true
+    ignores_interpolated_strings: true
+
+closure_body_length:
+    warning: 200
+
+function_body_length:
+    warning: 50
+
+function_parameter_count:
+    warning: 5
+
+large_tuple:
+    warning: 3
+
+cyclomatic_complexity:
+    warning: 10
+
+force_cast:
+    warning
+
+
+custom_rules:
+    guard_empty_line:
+        name: "Empty line after guard statement"
+        message: "Add empty line after guard"
+        capture_group: 1
+        regex: "guard([\\n\\d\\w\\s+-.,=\\{])?\\}\\n([ ]*\\w)"
+        severity: warning
+    trailing_closure_own_lines:
+        name: "Multiple trailing closure"
+        message: "Calls with multiple trailing closure syntax should be on its own line"
+        regex: "\\}, \\w"
+        severity: warning
+    one_statement_closure:
+        name: "One Statement closure"
+        message: "Closures with one statement should be written on one line"
+        regex: "^((?!(guard|if|else|switch|func|enum|init|class|struct|protocol|extension|->|\\}|var|let| \\))).)\\{[ \\w\\d_]?\\n[\\w \\(\\)+-_\"]+\\n[ ]*?\\}"
+        severity: warning
+    modificators_on_multiple_lines:
+        name: "One modificator per line"
+        message: "Place one modificator on a line, if there are many."
+        regex: "\\.\\w+\\([\\d\\w\\s+-.,*=]+\\)\\."
+        severity: warning
+#
+# Number of accesible warnings (Hard)
+#
+warning_threshold: 3
+
+reporter: xcode
