@@ -4,7 +4,7 @@ import SwiftUI
 struct Recreation_centerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreenView()
         }
     }
 }
