@@ -11,6 +11,8 @@
 		5054D5352A04AE0000D41BFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D5342A04AE0000D41BFC /* ContentView.swift */; };
 		5054D5372A04AE0100D41BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5054D5362A04AE0100D41BFC /* Assets.xcassets */; };
 		5054D53A2A04AE0100D41BFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5054D5392A04AE0100D41BFC /* Preview Assets.xcassets */; };
+		5054D55C2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D55B2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift */; };
+		5054D55E2A04B71700D41BFC /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D55D2A04B71700D41BFC /* R.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,10 @@
 		5054D5342A04AE0000D41BFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5054D5362A04AE0100D41BFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5054D5392A04AE0100D41BFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5054D55B2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentSizeCategory+Extension.swift"; sourceTree = "<group>"; };
+		5054D55D2A04B71700D41BFC /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
+		5054D5602A04B74300D41BFC /* FontsFree-Net-SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		5054D5612A04B77000D41BFC /* Recreation-center-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Recreation-center-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 		5054D5312A04AE0000D41BFC /* Recreation center */ = {
 			isa = PBXGroup;
 			children = (
+				5054D5612A04B77000D41BFC /* Recreation-center-Info.plist */,
 				5054D5552A04B63600D41BFC /* App */,
 				5054D5562A04B64400D41BFC /* Modules */,
 				5054D55A2A04B68D00D41BFC /* Extensions */,
@@ -103,7 +110,9 @@
 		5054D5592A04B68300D41BFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5054D55F2A04B73100D41BFC /* Fonts */,
 				5054D5362A04AE0100D41BFC /* Assets.xcassets */,
+				5054D55D2A04B71700D41BFC /* R.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -111,8 +120,17 @@
 		5054D55A2A04B68D00D41BFC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5054D55B2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5054D55F2A04B73100D41BFC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5054D5602A04B74300D41BFC /* FontsFree-Net-SFProDisplay-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5054D55E2A04B71700D41BFC /* R.swift in Sources */,
 				5054D5352A04AE0000D41BFC /* ContentView.swift in Sources */,
+				5054D55C2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift in Sources */,
 				5054D5332A04AE0000D41BFC /* Recreation_centerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +359,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Recreation center/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Recreation-center-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -367,6 +388,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Recreation center/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Recreation-center-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
