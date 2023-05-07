@@ -14,6 +14,17 @@ struct DataClass: Codable {
     let objects: [Object]?
 }
 
+struct Category: Codable, Hashable {
+    let name: String?
+    let type: TypeEnum?
+    let icon: Icon?
+    let count: Int?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
+
 enum Icon: String, Codable {
     case rstBasketFill = "rst-basket-fill"
     case rstChildren = "rst-children"
@@ -37,4 +48,17 @@ enum TypeEnum: String, Codable {
 // MARK: - Geo
 struct Geo: Codable {
     let lat, lon: Double?
+}
+
+struct Object: Codable, Identifiable {
+    let id: Int?
+    let name, description: String?
+    let image: URL?
+    let type: TypeEnum?
+    let icon: Icon?
+    let lat, lon: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, description, image, type, icon, lat, lon
+    }
 }

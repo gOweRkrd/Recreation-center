@@ -1,7 +1,7 @@
 import SwiftUI
 
 final class DetailViewModel: ObservableObject {
-    @Published var items = [Object]()
+    @Published var detailModel = [Object]()
     
     func fetchDetail(category: Category?) {
         guard let url = URL(string: "https://rsttur.ru/api/base-app/map") else {
@@ -20,9 +20,9 @@ final class DetailViewModel: ObservableObject {
                 if let categoriesArray = decodedData.data?.objects {
                     DispatchQueue.main.async {
                         if let category = category {
-                            self.items = categoriesArray.filter { $0.type == category.type }
+                            self.detailModel = categoriesArray.filter { $0.type == category.type }
                         } else {
-                            self.items = categoriesArray
+                            self.detailModel = categoriesArray
                         }
                     }
                 }
@@ -32,4 +32,5 @@ final class DetailViewModel: ObservableObject {
         }
         .resume()
     }
+    
 }
