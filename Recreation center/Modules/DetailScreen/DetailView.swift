@@ -56,7 +56,7 @@ private extension DetailView {
                 }
                 .padding(.leading, Constants.textLeadingPadding)
             }
-            .listRowBackground(Color.black)
+            .listRowBackground(Color(R.Colors.black))
             .onTapGesture {
                 viewModel.openInMaps(item: item)
             }

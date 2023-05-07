@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500760BF2A080AD700C0996F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500760BE2A080AD700C0996F /* UIColor+Extension.swift */; };
 		5054D5332A04AE0000D41BFC /* Recreation_centerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D5322A04AE0000D41BFC /* Recreation_centerApp.swift */; };
 		5054D5352A04AE0000D41BFC /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D5342A04AE0000D41BFC /* MainScreenView.swift */; };
 		5054D5372A04AE0100D41BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5054D5362A04AE0100D41BFC /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		500760BE2A080AD700C0996F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5054D52F2A04AE0000D41BFC /* Recreation center.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recreation center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5054D5322A04AE0000D41BFC /* Recreation_centerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recreation_centerApp.swift; sourceTree = "<group>"; };
 		5054D5342A04AE0000D41BFC /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				5054D55B2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift */,
+				500760BE2A080AD700C0996F /* UIColor+Extension.swift */,
 				5054D5642A04C01300D41BFC /* View+Extension.swift */,
 			);
 			path = Extensions;
@@ -253,6 +256,7 @@
 				5054D55E2A04B71700D41BFC /* R.swift in Sources */,
 				5054D5352A04AE0000D41BFC /* MainScreenView.swift in Sources */,
 				5054D55C2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift in Sources */,
+				500760BF2A080AD700C0996F /* UIColor+Extension.swift in Sources */,
 				5054D5332A04AE0000D41BFC /* Recreation_centerApp.swift in Sources */,
 				50A53B492A04F19A002EC0B0 /* DetailViewModel.swift in Sources */,
 				50A53B3F2A04DC6C002EC0B0 /* NetworkModel.swift in Sources */,
