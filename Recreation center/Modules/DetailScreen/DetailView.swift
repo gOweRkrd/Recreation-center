@@ -38,8 +38,8 @@ private extension DetailView {
                     } else {
                         ProgressView()
                             .frame(width: Constants.imageFrameWidth, height: Constants.imageFrameHeight)
-                            .onAppear {
-                                viewModel.loadImage(for: item)
+                            .task {
+                                await viewModel.loadImage(for: item)
                             }
                     }
                 } else {

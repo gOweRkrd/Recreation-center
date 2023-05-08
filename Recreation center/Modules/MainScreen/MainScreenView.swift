@@ -44,7 +44,7 @@ private extension MainScreenView {
                     if let count = category.count {
                         ZStack {
                             Circle()
-                                .fill(Color.red)
+                                .fill(category.color ?? .red)
                                 .frame(width: Constants.frameSize, height: Constants.frameSize)
                             Text("\(count)")
                                 .customFont(SFProDisplay.medium, category: .large)
