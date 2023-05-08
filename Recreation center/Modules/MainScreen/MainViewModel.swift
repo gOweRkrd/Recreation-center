@@ -27,3 +27,18 @@ final class MainScreenViewModel: ObservableObject {
         }
     }
 }
+
+// MARK: - Setup favorite button
+extension MainScreenViewModel {
+    
+    func toggleFavorite(for category: Category) {
+        guard let index = categories.firstIndex(where: { $0 == category }) else { return }
+        categories[index].isFavorite.toggle()
+        saveFavorites()
+    }
+    
+    private func saveFavorites() {
+        let favorites = categories.filter { $0.isFavorite }.map { $0.name }
+        UserDefaults.standard.setValue(favorites, forKey: "favorites")
+    }
+}
