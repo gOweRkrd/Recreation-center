@@ -31,7 +31,35 @@ final class MainScreenViewModel: ObservableObject {
 // MARK: - Setup favorite button
 extension MainScreenViewModel {
     
-    func toggleFavorite(for category: Category) {
+    func changeFavoriteButton(for category: Category) -> some View {
+        Image(systemName: category.isFavorite ? "heart.fill" : "heart")
+            .foregroundColor(category.isFavorite ? .red : .black)
+            .onTapGesture {
+                self.toggleFavorite(for: category)
+            }
+    }
+    
+    func trashButton(for category: Category) -> some View {
+        Button { [self] in
+            categories.removeAll(where: { $0 == category })
+        } label: {
+            Image(systemName: "trash")
+        }
+        .tint(.red)
+    }
+    
+    func favoriteButton(for category: Category) -> some View {
+        Button(
+            action: {
+                self.toggleFavorite(for: category)
+            },
+            label: {
+                Image(systemName: category.isFavorite ? "heart.fill" : "heart")
+            }
+        )
+    }
+    
+    private func toggleFavorite(for category: Category) {
         guard let index = categories.firstIndex(where: { $0 == category }) else { return }
         categories[index].isFavorite.toggle()
         saveFavorites()

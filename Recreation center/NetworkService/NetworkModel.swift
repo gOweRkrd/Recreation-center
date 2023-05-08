@@ -19,12 +19,12 @@ struct Category: Decodable, Hashable {
     let count: Int?
     let color: Color?
     var isFavorite: Bool = false
-
+    
     enum CodingKeys: String, CodingKey {
         case name, type, count
         case colorName = "color"
     }
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decodeIfPresent(String.self, forKey: .name)

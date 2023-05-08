@@ -38,7 +38,7 @@ final class DetailViewModel: ObservableObject {
             print(error.localizedDescription)
         }
     }
-
+    
     func openInMaps(item: Object) {
         guard let latitude = item.lat, let longitude = item.lon else { return }
         

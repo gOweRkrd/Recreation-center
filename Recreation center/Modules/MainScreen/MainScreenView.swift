@@ -54,39 +54,12 @@ private extension MainScreenView {
                         }
                         .padding(.trailing, Constants.zStackTrailing)
                     }
-                    
-                    if category.isFavorite {
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.red)
-                            .onTapGesture {
-                                viewModel.toggleFavorite(for: category)
-                            }
-                    } else {
-                        Image(systemName: "heart")
-                            .foregroundColor(.black)
-                            .onTapGesture {
-                                viewModel.toggleFavorite(for: category)
-                            }
-                    }
+                    viewModel.changeFavoriteButton(for: category)
                 }
             }
             .swipeActions(edge: .leading, allowsFullSwipe: false) {
-                
-                Button {
-                    viewModel.categories.removeAll(where: { $0 == category })
-                } label: {
-                    Image(systemName: "trash")
-                }
-                .tint(.red)
-                
-                Button(
-                    action: {
-                        viewModel.toggleFavorite(for: category)
-                    },
-                    label: {
-                        Image(systemName: category.isFavorite ? "heart.fill" : "heart")
-                    }
-                )
+                viewModel.trashButton(for: category)
+                viewModel.favoriteButton(for: category)
             }
         }
     }
