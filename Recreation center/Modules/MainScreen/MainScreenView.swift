@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct MainScreenView: View {
-    @StateObject var viewModel = MainScreenViewModel()
+    @StateObject var viewModel = MainScreenViewModel(networkService: NetworkService())
     
     var body: some View {
         setupMainScreenUI
             .preferredColorScheme(.dark)
             .onAppear {
-                viewModel.fetchCategories()
+                viewModel.fetchMainScreenView()
             }
     }
 }
