@@ -25,19 +25,20 @@ final class DetailViewModel: ObservableObject {
         }
     }
     
-    func loadImage(for item: Object) {
+    func loadImage(for item: Object) async {
         guard let imageUrl = item.image else { return }
         guard images[imageUrl] == nil else { return }
         
-        URLSession.shared.dataTask(with: imageUrl) { data, _, error in
-            guard let data = data, error == nil else { return }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: imageUrl)
             DispatchQueue.main.async {
                 self.images[imageUrl] = UIImage(data: data)
             }
+        } catch {
+            print(error.localizedDescription)
         }
-        .resume()
     }
-    
+
     func openInMaps(item: Object) {
         guard let latitude = item.lat, let longitude = item.lon else { return }
         
