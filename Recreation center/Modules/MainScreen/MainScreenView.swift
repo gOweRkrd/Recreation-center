@@ -36,7 +36,7 @@ private extension MainScreenView {
         List(viewModel.categories, id: \.name) { category in
             NavigationLink(destination: DetailView(category: category)) {
                 HStack {
-                    Text(category.name ?? "Unknown name")
+                    Text(category.name ?? R.MainScreenView.text)
                         .customFont(SFProDisplay.medium, category: .extraLarge)
                     
                     Spacer()

@@ -19,9 +19,9 @@ final class MainScreenViewModel: ObservableObject {
             } catch let error as NetworkError {
                 switch error {
                 case .networkError:
-                    print("networkError")
+                        print(R.MainViewModel.networkError)
                 case .decodingError:
-                    print("decodingError")
+                        print(R.MainViewModel.decodingError)
                 }
             }
         }

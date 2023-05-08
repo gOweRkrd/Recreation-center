@@ -20,7 +20,7 @@ final class DetailViewModel: ObservableObject {
                     self.detailModel = objects
                 }
             } catch {
-                print("Error fetching data: \(error.localizedDescription)")
+                print("\(R.DetailViewModel.errorPrint) \(error.localizedDescription)")
             }
         }
     }
@@ -39,23 +39,52 @@ final class DetailViewModel: ObservableObject {
     }
     
     func openInMaps(item: Object) {
-        guard let lat = item.lat, let lon = item.lon else {
+        guard let latitude = item.lat, let longitude = item.lon else { return }
+        
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        guard let dgisURL = URL(string: "dgis://2gis.ru/routeSearch/rsType/car/to/\(coordinate.longitude),\(coordinate.latitude)"),
+              let appleMapsURL = URL(string: "http://maps.apple.com/maps?daddr=\(coordinate.latitude),\(coordinate.longitude)"),
+              let googleMapsURL = URL(string: "comgooglemaps://?daddr=\(coordinate.latitude),\(coordinate.longitude)&directionsmode=driving") else {
             return
         }
-        // 2GIS
-        if let url = URL(string: "dgis://map/?pt=\(lon),\(lat)") {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                // Handle error
+        
+        let alertController = UIAlertController(
+            title: nil,
+            message: R.DetailViewModel.alert,
+            preferredStyle: .actionSheet
+        )
+        
+        if UIApplication.shared.canOpenURL(dgisURL) {
+            let dgisAction = UIAlertAction(title: R.DetailViewModel.dgis, style: .default) { _ in
+                UIApplication.shared.open(dgisURL, options: [:], completionHandler: nil)
             }
-        } else {
-            // Handle error
+            alertController.addAction(dgisAction)
         }
-        // Apple Maps
-        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
-        mapItem.name = item.name
-        mapItem.openInMaps(launchOptions: nil)
+        
+        if UIApplication.shared.canOpenURL(appleMapsURL) {
+            let appleMapsAction = UIAlertAction(title: R.DetailViewModel.appleMap, style: .default) { _ in
+                UIApplication.shared.open(appleMapsURL, options: [:], completionHandler: nil)
+            }
+            alertController.addAction(appleMapsAction)
+        }
+        
+        if UIApplication.shared.canOpenURL(googleMapsURL) {
+            let googleMapsAction = UIAlertAction(title: R.DetailViewModel.googleMap, style: .default) { _ in
+                UIApplication.shared.open(googleMapsURL, options: [:], completionHandler: nil)
+            }
+            alertController.addAction(googleMapsAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: R.DetailViewModel.cancel, style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            return
+        }
+        
+        rootViewController.present(alertController, animated: true, completion: nil)
+        
     }
 }
