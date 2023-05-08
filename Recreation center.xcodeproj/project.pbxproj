@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500760BF2A080AD700C0996F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500760BE2A080AD700C0996F /* UIColor+Extension.swift */; };
+		500760C32A08C02D00C0996F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500760C22A08C02D00C0996F /* NetworkManager.swift */; };
+		500760C52A08C03200C0996F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500760C42A08C03200C0996F /* HTTPMethod.swift */; };
+		500760C72A08C03A00C0996F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500760C62A08C03A00C0996F /* NetworkError.swift */; };
+		500760C92A08C04100C0996F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500760C82A08C04100C0996F /* NetworkService.swift */; };
 		5054D5332A04AE0000D41BFC /* Recreation_centerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D5322A04AE0000D41BFC /* Recreation_centerApp.swift */; };
 		5054D5352A04AE0000D41BFC /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5054D5342A04AE0000D41BFC /* MainScreenView.swift */; };
 		5054D5372A04AE0100D41BFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5054D5362A04AE0100D41BFC /* Assets.xcassets */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		500760BE2A080AD700C0996F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		500760C22A08C02D00C0996F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		500760C42A08C03200C0996F /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		500760C62A08C03A00C0996F /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		500760C82A08C04100C0996F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		5054D52F2A04AE0000D41BFC /* Recreation center.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recreation center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5054D5322A04AE0000D41BFC /* Recreation_centerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recreation_centerApp.swift; sourceTree = "<group>"; };
 		5054D5342A04AE0000D41BFC /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				5054D55B2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift */,
+				500760BE2A080AD700C0996F /* UIColor+Extension.swift */,
 				5054D5642A04C01300D41BFC /* View+Extension.swift */,
 			);
 			path = Extensions;
@@ -152,6 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				50A53B3E2A04DC6C002EC0B0 /* NetworkModel.swift */,
+				500760C22A08C02D00C0996F /* NetworkManager.swift */,
+				500760C42A08C03200C0996F /* HTTPMethod.swift */,
+				500760C62A08C03A00C0996F /* NetworkError.swift */,
+				500760C82A08C04100C0996F /* NetworkService.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -252,9 +267,14 @@
 				5054D5652A04C01300D41BFC /* View+Extension.swift in Sources */,
 				5054D55E2A04B71700D41BFC /* R.swift in Sources */,
 				5054D5352A04AE0000D41BFC /* MainScreenView.swift in Sources */,
+				500760C32A08C02D00C0996F /* NetworkManager.swift in Sources */,
 				5054D55C2A04B6E000D41BFC /* ContentSizeCategory+Extension.swift in Sources */,
+				500760BF2A080AD700C0996F /* UIColor+Extension.swift in Sources */,
 				5054D5332A04AE0000D41BFC /* Recreation_centerApp.swift in Sources */,
+				500760C52A08C03200C0996F /* HTTPMethod.swift in Sources */,
 				50A53B492A04F19A002EC0B0 /* DetailViewModel.swift in Sources */,
+				500760C92A08C04100C0996F /* NetworkService.swift in Sources */,
+				500760C72A08C03A00C0996F /* NetworkError.swift in Sources */,
 				50A53B3F2A04DC6C002EC0B0 /* NetworkModel.swift in Sources */,
 				5054D5692A04CAF900D41BFC /* MainViewModel.swift in Sources */,
 			);
@@ -385,9 +405,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Recreation center/Preview Content\"";
+				DEVELOPMENT_TEAM = 53J92LZ5NM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Recreation-center-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "You location determination is used app Recreation center";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -414,9 +436,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Recreation center/Preview Content\"";
+				DEVELOPMENT_TEAM = 53J92LZ5NM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Recreation-center-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "You location determination is used app Recreation center";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

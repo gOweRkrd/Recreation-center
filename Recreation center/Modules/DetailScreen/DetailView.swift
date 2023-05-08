@@ -4,7 +4,6 @@ struct DetailView: View {
     var category: Category?
     @StateObject var viewModel = DetailViewModel()
     @State private var selectedCategory: Category?
-    @State private var images: [URL: UIImage] = [:]
     
     var body: some View {
         listDetails
@@ -23,19 +22,6 @@ struct DetailView: View {
                 viewModel.fetchDetail(category: selectedCategory)
             }
     }
-    
-    func loadImage(for item: Object) {
-        guard let imageUrl = item.image else { return }
-        guard images[imageUrl] == nil else { return }
-        
-        URLSession.shared.dataTask(with: imageUrl) { data, _, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async {
-                images[imageUrl] = UIImage(data: data)
-            }
-        }
-        .resume()
-    }
 }
 
 private extension DetailView {
@@ -44,7 +30,7 @@ private extension DetailView {
         List(viewModel.detailModel.filter { $0.type == category?.type }) { item in
             HStack {
                 if let imageUrl = item.image {
-                    if let image = images[imageUrl] {
+                    if let image = viewModel.images[imageUrl] {
                         Image(uiImage: image)
                             .resizable()
                             .frame(width: Constants.imageFrameWidth, height: Constants.imageFrameHeight)
@@ -53,7 +39,7 @@ private extension DetailView {
                         ProgressView()
                             .frame(width: Constants.imageFrameWidth, height: Constants.imageFrameHeight)
                             .onAppear {
-                                loadImage(for: item)
+                                viewModel.loadImage(for: item)
                             }
                     }
                 } else {
@@ -70,7 +56,10 @@ private extension DetailView {
                 }
                 .padding(.leading, Constants.textLeadingPadding)
             }
-            .listRowBackground(Color.black)
+            .listRowBackground(Color(R.Colors.black))
+            .onTapGesture {
+                viewModel.openInMaps(item: item)
+            }
         }
     }
 }

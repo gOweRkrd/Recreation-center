@@ -2,30 +2,28 @@ import SwiftUI
 
 final class MainScreenViewModel: ObservableObject {
     @Published var categories: [Category] = []
+    private let networkService: NetworkService
     
-    func fetchCategories() {
-        guard let url = URL(string: "https://rsttur.ru/api/base-app/map") else {
-            print("Invalid URL")
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-            
+    init(networkService: NetworkService) {
+        self.networkService = networkService
+    }
+    
+    func fetchMainScreenView() {
+        Task {
             do {
-                let decodedData = try JSONDecoder().decode(NetworkModel.self, from: data)
-                if let categoriesArray = decodedData.data?.categories {
-                    DispatchQueue.main.async {
-                        self.categories = categoriesArray
-                    }
+                let decodedResponse = try await networkService.fetchData()
+                
+                if let categories = decodedResponse.data?.categories {
+                    await MainActor.run { self.categories = categories }
                 }
-            } catch {
-                print("Error decoding JSON: \(error.localizedDescription)")
+            } catch let error as NetworkError {
+                switch error {
+                case .networkError:
+                        print(R.MainViewModel.networkError)
+                case .decodingError:
+                        print(R.MainViewModel.decodingError)
+                }
             }
         }
-        .resume()
     }
 }
