@@ -4,7 +4,7 @@ Meaning project:recreation center application.
 
 Stack: SwiftUI, MVVM+N, URLSession, Async/Await, UserDefaults
 
-### [JSON]([https://spoonacular.com/food-api](https://rsttur.ru/api/base-app/map))
+### [JSON](https://rsttur.ru/api/base-app/map)
 
 ### Demonstration of the operation of screen and the operation of the application:
 
