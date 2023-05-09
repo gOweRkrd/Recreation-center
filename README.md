@@ -4,6 +4,8 @@ Meaning project:recreation center application.
 
 Stack: SwiftUI, MVVM+N, URLSession, Async/Await, UserDefaults
 
+Helpers: SwiftLint
+
 ### [JSON](https://rsttur.ru/api/base-app/map)
 
 ### Demonstration of the operation of screen and the operation of the application:
